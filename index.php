@@ -16,6 +16,9 @@
   
   <!-- Links -->
   <ul class="navbar-nav">
+  <li class="nav-item active">
+      <a class="nav-link" href="index.php">Home</a>
+    </li>
     <li class="nav-item active">
       <a class="nav-link" href="#">Gejala</a>
     </li>
@@ -34,14 +37,14 @@
   </ul>
 </nav>
 <!-- Isi Halaman Web -->
-<div class="container">
+<div class="container mt-2">
 <?php
 
 $page = isset($_GET['page']) ? $_GET['page'] : "";
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 
 if ($page==""){
-    include "NAMA_HALAMAN";
+    include "welcome.php";
 }elseif ($page=="NAMA_PAGE"){
     if ($action==""){
         include "NAMA_HALAMAN";
