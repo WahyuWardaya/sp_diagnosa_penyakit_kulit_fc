@@ -26,7 +26,7 @@ include "config.php";
       <a class="nav-link" href="index.php">Home</a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" href="#">Gejala</a>
+      <a class="nav-link" href="?page=gejala">Gejala</a>
     </li>
     <li class="nav-item active">
       <a class="nav-link" href="#">Penyakit</a>
@@ -51,9 +51,9 @@ $action = isset($_GET['action']) ? $_GET['action'] : "";
 
 if ($page==""){
     include "welcome.php";
-}elseif ($page=="NAMA_PAGE"){
+}elseif ($page=="gejala"){
     if ($action==""){
-        include "NAMA_HALAMAN";
+        include "menampilkan_gejala.php";
     }elseif ($action=="NAMA_ACTION"){
         include "NAMA_HALAMAN";
     }elseif ($action=="NAMA_ACTION"){
