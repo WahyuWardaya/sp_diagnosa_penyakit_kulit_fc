@@ -1,3 +1,9 @@
+<?php
+// koneksi data base
+include "config.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
