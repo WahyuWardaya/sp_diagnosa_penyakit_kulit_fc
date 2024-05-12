@@ -33,7 +33,7 @@ include "config.php";
       <a class="nav-link" href="?page=gejala">Gejala</a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" href="#">Penyakit</a>
+      <a class="nav-link" href="?page=penyakit">Penyakit</a>
     </li>
     <li class="nav-item active">
       <a class="nav-link" href="#">Basis Aturan</a>
@@ -64,6 +64,16 @@ if ($page==""){
         include "update_gejala.php";
     }else{
         include "hapus_gejala.php";
+    }
+  }elseif ($page=="penyakit"){
+    if ($action==""){
+        include "menampilkan_penyakit.php";
+    }elseif ($action=="tambah"){
+        include "tambah_penyakit.php";
+    }elseif ($action=="update"){
+        include "update_penyakit.php";
+    }else{
+        include "hapus_penyakit.php";
     }
 }else{
     include "NAMA_HALAMAN";
