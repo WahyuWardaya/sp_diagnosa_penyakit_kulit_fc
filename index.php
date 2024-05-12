@@ -13,6 +13,10 @@ include "config.php";
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- data table css -->
+    <link rel="stylesheet" href="assets/css/datatables.min.css">
+    <!-- font awesome css -->
+    <link rel="stylesheet" href="assets/css/all.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -54,12 +58,12 @@ if ($page==""){
 }elseif ($page=="gejala"){
     if ($action==""){
         include "menampilkan_gejala.php";
-    }elseif ($action=="NAMA_ACTION"){
-        include "NAMA_HALAMAN";
-    }elseif ($action=="NAMA_ACTION"){
-        include "NAMA_HALAMAN";
+    }elseif ($action=="tambah"){
+        include "tambah_gejala.php";
+    }elseif ($action=="update"){
+        include "update_gejala.php";
     }else{
-        include "NAMA_HALAMAN";
+        include "hapus_gejala.php";
     }
 }else{
     include "NAMA_HALAMAN";
@@ -68,8 +72,17 @@ if ($page==""){
 </div>
 
 <!-- jquery -->
-<link rel="stylesheet" href="assets/js/jquery-3.7.0.min.js">
+<script src="assets/js/jquery-3.7.0.min.js"></script>
 <!-- bootstrap js -->
-<link rel="stylesheet" href="assets/js/bootstrap.min.js">
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- data tables js -->
+<script src="assets/js/datatables.min.js"></script>
+<script>
+      $(document).ready(function() {
+            $('#myTable').DataTable();
+      } );
+  </script>
+  <!-- font awesome js -->
+  <script src="assets/js/all.js"></script>
 </body>
 </html>
