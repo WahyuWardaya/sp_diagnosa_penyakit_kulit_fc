@@ -17,6 +17,8 @@ include "config.php";
     <link rel="stylesheet" href="assets/css/datatables.min.css">
     <!-- font awesome css -->
     <link rel="stylesheet" href="assets/css/all.css">
+    <!-- chosen css -->
+    <link rel="stylesheet" href="assets/css/bootstrap-chosen.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -36,7 +38,7 @@ include "config.php";
       <a class="nav-link" href="?page=penyakit">Penyakit</a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" href="#">Basis Aturan</a>
+      <a class="nav-link" href="?page=aturan">Basis Aturan</a>
     </li>
     <li class="nav-item active">
       <a class="nav-link" href="#">Konsultasi</a>
@@ -75,6 +77,16 @@ if ($page==""){
     }else{
         include "hapus_penyakit.php";
     }
+  }elseif ($page=="aturan"){
+    if ($action==""){
+        include "menampilkan_aturan.php";
+    }elseif ($action=="tambah"){
+        include "tambah_aturan.php";
+    }elseif ($action=="update"){
+        include "update_penyakit.php";
+    }else{
+        include "hapus_penyakit.php";
+    }
 }else{
     include "NAMA_HALAMAN";
 }
@@ -94,5 +106,12 @@ if ($page==""){
   </script>
   <!-- font awesome js -->
   <script src="assets/js/all.js"></script>
+  <script src="assets/js/chosen.jquery.min.js"></script>
+  <script>
+      $(function() {
+        $('.chosen').chosen();
+      });
+</script>
+
 </body>
 </html>
