@@ -1,3 +1,55 @@
+<?php
+
+if(isset($_POST['simpan'])){
+    // mengambil data dari form
+    $nmpenyakit=$_POST['nmpenyakit'];
+	
+    // validasi nama penyakit
+    $sql = "SELECT basis_aturan.idaturan,basis_aturan.idpenyakit,penyakit.nmpenyakit FROM basis_aturan INNER JOIN penyakit ON basis_aturan.idpenyakit=penyakit.idpenyakit WHERE nmpenyakit='$nmpenyakit'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Basis Aturan Dari Penyakit Tersebut Sudah Ada</strong>
+            </div>
+        <?php
+    }else{
+
+        // mengambil data penyakit
+        $sql = "SELECT * FROM penyakit WHERE nmpenyakit='$nmpenyakit'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $idpenyakit = $row['idpenyakit'];
+
+	    //proses simpan basis aturan
+        $sql = "INSERT INTO basis_aturan VALUES (Null,'$idpenyakit')";
+        mysqli_query($conn,$sql);
+
+        // mengambil idgejala
+        $idgejala=$_POST['idgejala'];
+
+        // proses mengambil data aturan
+        $sql = "SELECT * FROM basis_aturan ORDER BY idaturan DESC";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $idaturan = $row['idaturan'];
+
+        // proses simpan detail basis aturan
+        $jumlah = count($idgejala);
+        $i=0;
+        while($i < $jumlah){
+            $idgejalanya = $idgejala[$i];
+            $sql = "INSERT INTO detail_basis_aturan VALUES ($idaturan,'$idgejalanya')";
+            mysqli_query($conn,$sql);
+            $i++;
+        }
+
+        header("Location:?page=aturan");
+    }
+}
+?>
+
 <div class="row">
     <div class="col-sm-12">
         <form action="" method="POST">
@@ -14,7 +66,7 @@
                                     $result = $conn->query($sql);
                                     while($row = $result->fetch_assoc()) {
                                 ?>
-                                    <option value="<?php echo $row['idpenyakit']; ?>"><?php echo $row['nmpenyakit']; ?></option>
+                                    <option value="<?php echo $row['nmpenyakit']; ?>"><?php echo $row['nmpenyakit']; ?></option>
                                 <?php
                                     }
                                 ?>
@@ -40,7 +92,7 @@
                                     while($row = $result->fetch_assoc()) {
                                 ?>
                                 <tr>
-                                    <td align="center"><input type="checkbox" class="check-item" name=""></td>
+                                    <td align="center"><input type="checkbox" class="check-item" name="<?php echo 'idgejala[]';?>" value="<?php echo $row['idgejala']; ?>"></td>
                                     <td><?php echo $no++; ?></td>
                                     <td><?php echo $row['nmgejala']; ?></td>
                                 </tr>
@@ -53,7 +105,7 @@
                     </div>
 
                     <input class="btn btn-primary" type="submit" name="simpan" value="Simpan">
-                    <a class="btn btn-danger" href="?page=penyakit">Batal</a>
+                    <a class="btn btn-danger" href="?page=aturan">Batal</a>
                 </div>
             </div>
         </form>

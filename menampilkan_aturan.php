@@ -15,7 +15,7 @@
 			<!-- proses menampilkan -->
     <?php
         $no=1;
-        $sql = "SELECT basis_aturan.idaturan,basis_aturan.idpenyakit,penyakit.nmpenyakit,penyakit.keterangan FROM basis_aturan INNER JOIN penyakit  WHERE basis_aturan.idpenyakit=penyakit.idpenyakit ORDER BY nmpenyakit ASC";
+        $sql = "SELECT basis_aturan.idaturan,basis_aturan.idpenyakit,penyakit.nmpenyakit,penyakit.keterangan FROM basis_aturan INNER JOIN penyakit  ON basis_aturan.idpenyakit=penyakit.idpenyakit ORDER BY nmpenyakit ASC";
         $result = $conn->query($sql);
         while($row = $result->fetch_assoc()) {
  ?>
