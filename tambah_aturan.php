@@ -52,7 +52,7 @@ if(isset($_POST['simpan'])){
 
 <div class="row">
     <div class="col-sm-12">
-        <form action="" method="POST">
+        <form action="" method="POST" name="Form" onsubmit="return validasiForm()">
             <div class="card border-dark">
                 <div class="card">
                 <div class="card-header bg-primary text-white border-dark"><strong>Tambah Data Basis Aturan</strong></div>
@@ -111,3 +111,37 @@ if(isset($_POST['simpan'])){
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+    function validasiForm()
+    {
+        // validasi nama penyakit
+        var nmpenyakit = document.forms["Form"]["nmpenyakit"].value;
+
+        if(nmpenyakit==""){
+            alert("Pilih nama penyakit");
+            return false;
+        }
+
+        // validasi gejala yang belum dipilih
+        var checkbox = document.getElementsByName('<?php echo 'idgejala[]';?>');
+
+        var isChecked=false;
+
+        for(var i=0;i<checkbox.length;i++){
+            if(checkbox[i].checked){
+                isChecked = true;
+                break;
+            }
+        }
+
+        // jika belum ada yang dicheck
+        if(!isChecked){
+            alert('Pilih Setidaknya Satu Gejala !!');
+            return false;
+        }
+
+        return true;
+    }
+
+</script>
