@@ -18,20 +18,20 @@
         $sql = "SELECT basis_aturan.idaturan,basis_aturan.idpenyakit,penyakit.nmpenyakit,penyakit.keterangan FROM basis_aturan INNER JOIN penyakit  ON basis_aturan.idpenyakit=penyakit.idpenyakit ORDER BY nmpenyakit ASC";
         $result = $conn->query($sql);
         while($row = $result->fetch_assoc()) {
- ?>
+    ?>
      <tr>
         <td><?php echo $no++; ?></td>
-	    <td><?php echo $row['nmpenyakit']; ?></td>
+	      <td><?php echo $row['nmpenyakit']; ?></td>
         <td><?php echo $row['keterangan']; ?></td>
-	    <td align="center">
+	      <td align="center">
             <a class="btn btn-primary" href="?page=aturan&action=detail&idpenyakit=<?php echo $row['idaturan']; ?>">
-            <i class='fas fa-list'></i>
+              <i class='fas fa-list'></i>
             </a>
             <a class="btn btn-warning" href="?page=aturan&action=update&idpenyakit=<?php echo $row['idaturan']; ?>">
-            <i class='fas fa-edit'></i>
+              <i class='fas fa-edit'></i>
             </a>
             <a onclick="return confirm('Yakin menghapus data ini ?')" class="btn btn-danger" href="?page=aturan&action=hapus&idpenyakit=<?php echo $row['idaturan']; ?>">
-            <i class='fas fa-window-close'></i>
+              <i class='fas fa-window-close'></i>
             </a>
         </td>
      </tr>

@@ -19,13 +19,13 @@
         $sql = "SELECT*FROM penyakit ORDER BY nmpenyakit ASC";
         $result = $conn->query($sql);
         while($row = $result->fetch_assoc()) {
- ?>
+    ?>
      <tr>
         <td><?php echo $no++; ?></td>
-	    <td><?php echo $row['nmpenyakit']; ?></td>
+	      <td><?php echo $row['nmpenyakit']; ?></td>
         <td><?php echo $row['keterangan']; ?></td>
-	    <td><?php echo $row['solusi']; ?></td>
-	    <td align="center">
+	      <td><?php echo $row['solusi']; ?></td>
+	      <td align="center">
             <a class="btn btn-warning" href="?page=penyakit&action=update&idpenyakit=<?php echo $row['idpenyakit']; ?>">
             <i class='fas fa-edit'></i>
             </a>

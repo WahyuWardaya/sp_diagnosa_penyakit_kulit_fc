@@ -49,7 +49,7 @@ include "config.php";
   </ul>
 </nav>
 <!-- Isi Halaman Web -->
-<div class="container mt-2">
+<div class="container mt-2 mb-2">
 <?php
 
 $page = isset($_GET['page']) ? $_GET['page'] : "";
@@ -82,6 +82,8 @@ if ($page==""){
         include "menampilkan_aturan.php";
     }elseif ($action=="tambah"){
         include "tambah_aturan.php";
+    }elseif ($action=="detail"){
+        include "detail_aturan.php";
     }elseif ($action=="update"){
         include "update_penyakit.php";
     }else{
