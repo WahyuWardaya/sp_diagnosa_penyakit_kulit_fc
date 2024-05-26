@@ -34,6 +34,9 @@ include "config.php";
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item active">
+                <a class="nav-link" href="?page=users">Users</a>
+            </li>
+            <li class="nav-item active">
                 <a class="nav-link" href="?page=gejala">Gejala</a>
             </li>
             <li class="nav-item active">
@@ -61,43 +64,53 @@ include "config.php";
             include "welcome.php";
         } elseif ($page == "gejala") {
             if ($action == "") {
-                include "menampilkan_gejala.php";
+                include "menu_gejala/menampilkan_gejala.php";
             } elseif ($action == "tambah") {
-                include "tambah_gejala.php";
+                include "menu_gejala/tambah_gejala.php";
             } elseif ($action == "update") {
-                include "update_gejala.php";
+                include "menu_gejala/update_gejala.php";
             } else {
-                include "hapus_gejala.php";
+                include "menu_gejala/hapus_gejala.php";
             }
         } elseif ($page == "penyakit") {
             if ($action == "") {
-                include "menampilkan_penyakit.php";
+                include "menu_penyakit/menampilkan_penyakit.php";
+            } elseif ($action == "tambah") {
+                include "menu_penyakit/tambah_penyakit.php";
+            } elseif ($action == "update") {
+                include "menu_penyakit/update_penyakit.php";
+            } else {
+                include "menu_penyakit/hapus_penyakit.php";
+            }
+        } elseif ($page == "aturan") {
+            if ($action == "") {
+                include "basis_aturan/menampilkan_aturan.php";
+            } elseif ($action == "tambah") {
+                include "basis_aturan/tambah_aturan.php";
+            } elseif ($action == "detail") {
+                include "basis_aturan/detail_aturan.php";
+            } elseif ($action == "update") {
+                include "basis_aturan/update_aturan.php";
+            } elseif ($action == "hapus_gejala") {
+                include "basis_aturan/hapus_detail_aturan.php";
+            } else {
+                include "basis_aturan/hapus_aturan.php";
+            }
+        } elseif ($page == "konsultasi") {
+            if ($action == "") {
+                include "menu_konsultasi/menampilkan_konsultasi.php";
+            } else {
+                include "menu_konsultasi/hasil_konsultasi.php";
+            }
+        } elseif ($page == "users") {
+            if ($action == "") {
+                include "menu_users/menampilkan_users.php";
             } elseif ($action == "tambah") {
                 include "tambah_penyakit.php";
             } elseif ($action == "update") {
                 include "update_penyakit.php";
             } else {
                 include "hapus_penyakit.php";
-            }
-        } elseif ($page == "aturan") {
-            if ($action == "") {
-                include "menampilkan_aturan.php";
-            } elseif ($action == "tambah") {
-                include "tambah_aturan.php";
-            } elseif ($action == "detail") {
-                include "detail_aturan.php";
-            } elseif ($action == "update") {
-                include "update_aturan.php";
-            } elseif ($action == "hapus_gejala") {
-                include "hapus_detail_aturan.php";
-            } else {
-                include "hapus_aturan.php";
-            }
-        } elseif ($page == "konsultasi") {
-            if ($action == "") {
-                include "menampilkan_konsultasi.php";
-            } else {
-                include "hasil_konsultasi.php";
             }
         } else {
             include "NAMA_HALAMAN";
