@@ -106,11 +106,11 @@ include "config.php";
             if ($action == "") {
                 include "menu_users/menampilkan_users.php";
             } elseif ($action == "tambah") {
-                include "tambah_penyakit.php";
+                include "menu_users/tambah_users.php";
             } elseif ($action == "update") {
-                include "update_penyakit.php";
+                include "menu_users/update_users.php";
             } else {
-                include "hapus_penyakit.php";
+                include "menu_users/hapus_users.php";
             }
         } else {
             include "NAMA_HALAMAN";
