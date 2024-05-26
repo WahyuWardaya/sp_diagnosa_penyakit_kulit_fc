@@ -20,6 +20,10 @@ include "config.php";
     <link rel="stylesheet" href="assets/css/all.css">
     <!-- chosen css -->
     <link rel="stylesheet" href="assets/css/bootstrap-chosen.css">
+    <!-- icon navbar -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- style css -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -27,6 +31,10 @@ include "config.php";
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <!-- Brand/logo -->
         <a class="navbar-brand" href="#">Sistem Pakar Diagnosa Penyakit Kulit</a>
+        <label for="check" class="checkbox">
+            <i class="ri-menu-line"></i>
+        </label>
+        <input type="checkbox" name="check" id="check" />
 
         <!-- Links -->
         <ul class="navbar-nav">
