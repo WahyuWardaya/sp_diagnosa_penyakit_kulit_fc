@@ -72,7 +72,7 @@ if (isset($_POST['proses'])) {
             mysqli_query($conn, $sql);
         }
 
-        // header("Location:?page=konsultasi&action=hasil&idkonsultasi=$idkonsultasi");
+        header("Location:?page=konsultasi&action=hasil&idkonsultasi=$idkonsultasi");
     }
 }
 
