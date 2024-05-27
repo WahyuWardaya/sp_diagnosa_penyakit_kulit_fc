@@ -1,4 +1,5 @@
 <?php
+session_start();
 // koneksi data base
 include "config.php";
 
@@ -41,28 +42,53 @@ include "config.php";
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">Home</a>
             </li>
+
+            <!-- Membagikan Hak Akses Admin -->
+            <?php
+            if ($_SESSION['role'] == "Admin") {
+            ?>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=users">Users</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=gejala">Gejala</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=penyakit">Penyakit</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=aturan">Basis Aturan</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=">Konsultasi</a>
+                </li>
+            <?php
+            } else {
+            ?>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=konsultasi">Konsultasi</a>
+                </li>
+
+            <?php
+            }
+            ?>
             <li class="nav-item active">
-                <a class="nav-link" href="?page=users">Users</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="?page=gejala">Gejala</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="?page=penyakit">Penyakit</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="?page=aturan">Basis Aturan</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="?page=konsultasi">Konsultasi</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="?page=logout">Logout</a>
             </li>
         </ul>
     </nav>
-    <!-- Isi Halaman Web -->
+
+    <!-- cek status login -->
+    <?php
+    if ($_SESSION['status'] != "y") {
+        header("Location:login.php");
+    }
+    ?>
+
+
+    <!-- container -->
     <div class="container mt-2 mb-2">
+        <!-- setting menu -->
         <?php
 
         $page = isset($_GET['page']) ? $_GET['page'] : "";
@@ -121,7 +147,7 @@ include "config.php";
                 include "menu_users/hapus_users.php";
             }
         } else {
-            include "NAMA_HALAMAN";
+            include "logout.php";
         }
         ?>
     </div>
