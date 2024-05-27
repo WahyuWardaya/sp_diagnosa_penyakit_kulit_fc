@@ -60,7 +60,7 @@ include "config.php";
                     <a class="nav-link" href="?page=aturan">Basis Aturan</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="?page=">Konsultasi</a>
+                    <a class="nav-link" href="?page=konsultasi_adm">Konsultasi</a>
                 </li>
             <?php
             } else {
@@ -135,6 +135,12 @@ include "config.php";
                 include "menu_konsultasi/menampilkan_konsultasi.php";
             } else {
                 include "menu_konsultasi/hasil_konsultasi.php";
+            }
+        } elseif ($page == "konsultasi_adm") {
+            if ($action == "") {
+                include "konsultasi_adm/menampilkan_konsultasi_adm.php";
+            } else {
+                include "konsultasi_adm/detail_konsultasi_adm.php";
             }
         } elseif ($page == "users") {
             if ($action == "") {
