@@ -11,7 +11,7 @@
     <!-- Explanation Section -->
     <div class="row mt-5">
         <div class="col-md-12">
-            <h1 class="text-center">Penjelasan Mengenai Penyakit Kulit</h1>
+            <h1 class="text-center">Informasi Penyakit Kulit</h1>
             <p class="lead text-center">Penyakit kulit adalah kondisi yang mempengaruhi kulit, baik pada lapisan luar maupun lapisan dalam. Berikut beberapa jenis penyakit kulit yang umum:</p>
         </div>
     </div>
